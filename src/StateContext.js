@@ -3,6 +3,7 @@ import React, { createContext, useReducer, useContext } from 'react';
 // Initial state
 const initialState = {
   transactions: [],
+  monthlyIncome: 0,
 };
 
 // Reducer function to manage state updates
@@ -12,6 +13,8 @@ function stateReducer(state, action) {
       return { ...state, transactions: [...state.transactions, action.payload] };
     case 'REMOVE_TRANSACTION':
       return { ...state, transactions: state.transactions.filter(transaction => transaction.id !== action.payload) };
+    case 'SET_MONTHLY_INCOME':
+      return { ...state, monthlyIncome: action.payload };
     default:
       return state;
   }
