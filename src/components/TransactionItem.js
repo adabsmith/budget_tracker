@@ -5,8 +5,8 @@ function TransactionItem({ transaction }) {
     const { dispatch } = useStateContext();
 
     return (
-        <div>
-            <span>{transaction.description}: ${transaction.amount + '  '}</span>
+        <div className="transaction-item">
+            <span>{transaction.description}: ${transaction.amount + " "}</span>
             <button onClick={() => dispatch({ type: 'REMOVE_TRANSACTION', payload: transaction.id })}>
                 Remove
             </button>

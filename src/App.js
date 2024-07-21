@@ -5,6 +5,7 @@ import TransactionList from './components/TransactionList';
 import BudgetSummary from './components/BudgetSummary';
 import ExpenseChart from './components/ExpenseChart';
 import IncomeExpenseChart from './components/IncomeExpenseChart';
+import IncomeForm from './components/IncomeForm';
 import './App.css';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
     <StateProvider>
       <div className="App">
         <h1>Budget Tracker</h1>
+        <IncomeForm />
         <BudgetSummary />
         <TransactionForm />
         <TransactionList />

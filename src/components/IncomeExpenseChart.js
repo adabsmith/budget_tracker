@@ -5,9 +5,15 @@ import { useStateContext } from '../StateContext';
 function IncomeExpenseChart() {
     const { state } = useStateContext();
 
+    const totalIncome = state.monthlyIncome;
+
+    const totalExpenses = Math.abs(state.transactions
+        .filter(transaction => transaction.amount < 0)
+        .reduce((acc, transaction) => acc + transaction.amount, 0));
+
     const summaryData = [
-        { name: 'Expenses', value: state.transactions.filter(transaction => transaction.amount > 0).reduce((acc, transaction) => acc + transaction.amount, 0) },
-        { name: 'Income', value: Math.abs(state.transactions.filter(transaction => transaction.amount < 0).reduce((acc, transaction) => acc + transaction.amount, 0)) },
+        { name: 'Income', value: totalIncome },
+        { name: 'Expenses', value: totalExpenses },
     ];
 
     return (
